@@ -21,16 +21,18 @@ class App extends React.Component {
   render(){
     const { data } = this.state;
     return (
-      <div className="container p-1 py-1">
+      <div className="container-fluid">
         <div className="row">
           <header className="custom-element">
-            <h1 className="display-1">App starts here </h1>
+            <h1 className="display-1 text-center">Covid Tracker </h1>
           </header>
         </div>
-        
+        <div className="container">
+
           <Cards data={ data } />
           <Charts />
           <CountryPicker />
+        </div>
       </div>
     );
   }
