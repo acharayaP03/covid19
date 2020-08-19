@@ -2,7 +2,14 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 ## Covid 19 tracker Project
 
-In the project directory, you can run:
+In the project, we have installed following dependencies 
+
+-- axios for ajax request
+-- react-charts-2 for charts and data visualization.
+-- react-counterup for animated counter.
+-- bootstrap 5 alpha for css, also this version doest require jquery
+-- prop-types for runtime type checking for react props and similar objects. 
+
 
 ### `npm start`
 
