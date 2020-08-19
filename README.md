@@ -1,6 +1,6 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app) and Bootstrap 5 alpha release. 
 
-## Available Scripts
+## Covid 19 tracker Project
 
 In the project directory, you can run:
 
