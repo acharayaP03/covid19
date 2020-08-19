@@ -1,9 +1,10 @@
 import React from 'react'
 
- const Cards = () => {
+ const Cards = ({data}) => {
+     console.log(data)
     return (
         <div>
-            <h2>Cards </h2>
+         
         </div>
     )
 }
