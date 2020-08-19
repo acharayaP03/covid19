@@ -4,7 +4,7 @@ import React, { useState, useEffect } from 'react'
 import { Line, Bar  } from 'react-chartjs-2';
 import { fetchDailyData } from '../../API/api';
 
-const Charts = props => {
+const Charts = ({ data:{ confirmed, recovered, deaths }, country }) => {
     const [dailyData, setDailyData] = useState([]);
 
     useEffect( () =>{
@@ -14,7 +14,7 @@ const Charts = props => {
 
         fetchDailyApi();
         
-    }, [dailyData]);
+    }, []);
 
     const lineChart = (
         dailyData.length ? 
@@ -43,10 +43,35 @@ const Charts = props => {
         : null     
     );
 
+    const barChart = (
+        confirmed 
+            ? (
+                <Bar 
+                    data={{
+                        labels: ['Infected', 'Recovered', 'Deaths'],
+                        datasets: [{
+                            label: 'People',
+                            backgroundColor: [
+                                'rgba(0, 0, 255, 0.5',
+                                'rgba(0, 255, 0, 0.5',
+                                'rgba(255, 0, 0, 0.5',
+                            ],
+                            data: [confirmed.value, recovered.value, deaths.value ]
+                        }]
+                    }}
+                    options={{
+                        legend: { display: false},
+                        title: { display: true, text: ` Current State in ${country}`}
+                    }}
+                />
+            )
+            : null
+    )
+
     return (
         <div className="row">
             <div className="col mt-5">
-                {lineChart}
+                { country ? barChart : lineChart }
             </div>
         </div>
     )

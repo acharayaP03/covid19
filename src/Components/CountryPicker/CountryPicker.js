@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react'
 //import PropTypes from 'prop-types'
 import { fetchCountries } from '../../API/api'
 
-const CountryPicker = () => {
+const CountryPicker = ({ handleCountryChange }) => {
 
     const [ fetchedCountries, setFetchedCountries ] = useState([]);
 
@@ -19,8 +19,8 @@ const CountryPicker = () => {
             <h3 className="text-center">Country</h3>
             <div className="col-md-8">
                 <form>
-                    <select className="form-select" aria-label="Default select example">
-                        <option value="global">Global</option>
+                    <select className="form-select" aria-label="Default select example" onChange={(e) => handleCountryChange(e.target.value)}>
+                        <option value="">Global</option>
                         { fetchedCountries.map( (country, i) => <option key={i} value={country}>{country}</option>)}
                     </select>
                 </form>

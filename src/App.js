@@ -10,16 +10,29 @@ class App extends React.Component {
       super(props);
 
       this.state = {
-        data: {}
+        data: {},
+        country: ''
       }
+     
     }
 
   async componentDidMount (){
     const fetchedData = await fetchData();
     this.setState({ data : fetchedData });
   }
+  
+  handleCountryChange = async (country) => {
+
+    //fetch data
+    const fetchedCountryData = await fetchData(country);
+    console.log(fetchedCountryData)
+
+    //set the state..
+    this.setState({ data: fetchedCountryData, country: country })
+
+  }
   render(){
-    const { data } = this.state;
+    const { data, country } = this.state;
     return (
       <div className="container-fluid">
         <div className="row">
@@ -29,8 +42,8 @@ class App extends React.Component {
         </div>
         <div className="container">
           <Cards data={ data } />
-          <CountryPicker />
-          <Charts />
+          <CountryPicker handleCountryChange={this.handleCountryChange}/>
+          <Charts data={data} country={country} />
         </div>
       </div>
     );
